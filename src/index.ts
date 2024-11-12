@@ -15,6 +15,7 @@ import color from 'picocolors';
 
 import { installDrizzle } from './tasks/drizzle/index.js';
 import { createNextProject } from './tasks/next/index.js';
+import { installPayload } from './tasks/payload/index.js';
 
 export async function main() {
   intro(`${color.bgCyan(color.black('Create a new Next.js project'))}`);
@@ -165,9 +166,14 @@ export async function main() {
 
   const s = spinner();
   s.start(`Creating ${color.green(project.name)}...`);
-  createNextProject(project.name);
+  await createNextProject(project.name);
+
+  if (project.cms) {
+    await installPayload();
+  }
+
   if (project.database) {
-    installDrizzle({
+    await installDrizzle({
       dbName: project.databaseName as string,
       dbUser: project.databaseUser as string,
       dbPassword: project.databasePassword as string

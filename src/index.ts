@@ -17,8 +17,6 @@ import { installDrizzle } from './tasks/drizzle/index.js';
 import { createNextProject } from './tasks/next/index.js';
 
 export async function main() {
-  console.clear();
-
   intro(`${color.bgCyan(color.black('Create a new Next.js project'))}`);
 
   const project = await group(

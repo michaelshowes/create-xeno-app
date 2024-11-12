@@ -5,6 +5,7 @@ import fs from 'fs';
 import { pkgManager } from '@/constants.js';
 
 import { eslintConfig } from './config/eslintConfig.js';
+import { gitignore } from './config/gitignore.js';
 import { prettierConfig } from './config/prettierConfig.js';
 import { defaultRootLayout } from './config/rootLayout.js';
 import { utilsConfig } from './config/utilsConfig.js';
@@ -47,6 +48,9 @@ export async function createNextProject(projectName: string) {
 
   // Create the .eslintrc file
   fs.writeFileSync('.eslintrc.json', eslintConfig);
+
+  // Update .gitignore
+  fs.writeFileSync('.gitignore', gitignore);
 
   consola.success('Next.js successfully installed!');
 }

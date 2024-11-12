@@ -17,7 +17,6 @@ import { installDrizzle } from './tasks/drizzle/index.js';
 import { createNextProject } from './tasks/next/index.js';
 
 export async function main() {
-  // execSync('rm -rf my-app');
   console.clear();
 
   intro(`${color.bgCyan(color.black('Create a new Next.js project'))}`);
@@ -178,7 +177,7 @@ export async function main() {
   }
   s.stop(`Project ${color.green(project.name)} created!`);
 
-  let nextSteps = `cd ${project.name}
+  const nextSteps = `cd ${project.name}
     \n${project.name ? '' : 'pnpm install\n'}pnpm dev
   `;
 

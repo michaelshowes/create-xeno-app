@@ -25,17 +25,17 @@ export async function installDrizzle({ dbName, dbUser, dbPassword }: DBInfo) {
     stdio: ['ignore', 'ignore', 'ignore']
   });
 
-  // if (!fs.existsSync('.env')) {
-  //   fs.writeFileSync(
-  //     '.env',
-  //     `DATABASE_URL=postgres://${dbUser}:${dbPassword}@localhost:5432/${dbName}\n`
-  //   );
-  // }
-
-  // fs.writeFileSync(
-  //   '.env',
-  //   `DATABASE_URL=postgres://${dbUser}:${dbPassword}@localhost:5432/${dbName}\n`
-  // );
+  if (!fs.existsSync('.env')) {
+    fs.writeFileSync(
+      '.env',
+      `DATABASE_URL=postgres://${dbUser}:${dbPassword}@localhost:5432/${dbName}\n`
+    );
+  } else {
+    fs.appendFileSync(
+      '.env',
+      `DATABASE_URL=postgres://${dbUser}:${dbPassword}@localhost:5432/${dbName}\n`
+    );
+  }
   fs.mkdirSync('./src/db/');
   fs.writeFileSync('./src/db/index.ts', drizzleConfig);
   fs.mkdirSync('./src/db/schema/', { recursive: true });

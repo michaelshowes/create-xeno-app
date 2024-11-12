@@ -1,5 +1,11 @@
 # create-xeno-app
 
+## 0.1.1
+
+### Patch Changes
+
+- added missing .env generator from Drizzle task
+
 ## 0.1.0
 
 ### Minor Changes

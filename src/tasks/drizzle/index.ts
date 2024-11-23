@@ -4,7 +4,7 @@ import fs from 'fs';
 
 import { pkgManager } from '@/constants.js';
 
-import { drizzleConfig } from './config/drizzleConfig.js';
+import { drizzleClient } from './config/drizzleClient.js';
 import { defaultUserQueries } from './config/queries.js';
 import { defaultSchema, defaultUserSchema } from './config/schema.js';
 
@@ -36,8 +36,9 @@ export async function installDrizzle({ dbName, dbUser, dbPassword }: DBInfo) {
       `DATABASE_URL=postgres://${dbUser}:${dbPassword}@localhost:5432/${dbName}\n`
     );
   }
+  fs.writeFileSync('./drizzle.config.ts', drizzleClient);
   fs.mkdirSync('./src/db/');
-  fs.writeFileSync('./src/db/index.ts', drizzleConfig);
+  fs.writeFileSync('./src/db/index.ts', drizzleClient);
   fs.mkdirSync('./src/db/schema/', { recursive: true });
   fs.writeFileSync('./src/db/schema/index.ts', defaultSchema);
   fs.writeFileSync('./src/db/schema/users.ts', defaultUserSchema);

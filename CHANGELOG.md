@@ -1,5 +1,11 @@
 # create-xeno-app
 
+## 0.4.1
+
+### Patch Changes
+
+- added cross-env to dev dependencies
+
 ## 0.4.0
 
 ### Minor Changes

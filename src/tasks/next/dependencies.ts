@@ -3,5 +3,5 @@ next-themes clsx bcrypt zod react-hook-form @hookform/resolvers dotenv dotenv-ex
 `.trim();
 
 export const devDependencies = `
-prettier eslint-config-prettier prettier-plugin-tailwindcss @trivago/prettier-plugin-sort-imports @types/bcrypt
+prettier eslint-config-prettier prettier-plugin-tailwindcss @trivago/prettier-plugin-sort-imports @types/bcrypt cross-env
 `.trim();

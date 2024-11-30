@@ -11,7 +11,7 @@ export async function installPayload() {
   fs.renameSync('./src/app/layout.tsx', './src/app/(app)/layout.tsx');
   fs.renameSync('./src/app/page.tsx', './src/app/(app)/page.tsx');
 
-  execSync(`${pkgManager.execute} create-payload-app@beta`, {
+  execSync(`${pkgManager.execute} create-payload-app@latest`, {
     stdio: 'inherit'
   });
 

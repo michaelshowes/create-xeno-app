@@ -1,5 +1,11 @@
 # create-xeno-app
 
+## 0.4.0
+
+### Minor Changes
+
+- updated Payload version
+
 ## 0.3.0
 
 ### Minor Changes
